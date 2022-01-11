@@ -2,15 +2,26 @@
   "name": "jutube",
   "version": "1.0.0",
   "description": "youtube clone coding",
-  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ju-wang/jutube.git"
+  },
+  "scripts": {
+    "dev": "nodemon --exec npx babel-node index.js"
   },
   "author": "Ju Wang",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Ju-wang/jutube/issues"
   },
-  "homepage": "https://github.com/Ju-wang/jutube#readme"
+  "homepage": "https://github.com/Ju-wang/jutube#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/node": "^7.16.8",
+    "@babel/preset-env": "^7.16.8",
+    "nodemon": "^2.0.15"
+  }
 }
