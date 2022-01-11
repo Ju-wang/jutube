@@ -1,0 +1,16 @@
+{
+  "name": "jutube",
+  "version": "1.0.0",
+  "description": "youtube clone coding",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ju-wang/jutube.git"
+  },
+  "author": "Ju Wang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ju-wang/jutube/issues"
+  },
+  "homepage": "https://github.com/Ju-wang/jutube#readme"
+}
