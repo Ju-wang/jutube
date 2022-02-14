@@ -7,7 +7,7 @@
     "url": "git+https://github.com/Ju-wang/jutube.git"
   },
   "scripts": {
-    "dev": "nodemon --exec npx babel-node src/server.js"
+    "dev": "nodemon --exec npx babel-node src/init.js"
   },
   "author": "Ju Wang",
   "license": "MIT",
@@ -17,7 +17,9 @@
   "homepage": "https://github.com/Ju-wang/jutube#readme",
   "dependencies": {
     "express": "^4.17.2",
-    "morgan": "^1.10.0"
+    "mongoose": "^6.2.0",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
