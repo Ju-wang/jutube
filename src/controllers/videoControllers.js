@@ -1,7 +1,7 @@
 import Video from "../models/Video"
 
 export const home = async (req, res) => {
-    const videos = await Video.find({})
+    const videos = await Video.find({}).sort({ createdAt: "desc" })
     return res.render("home", { pageTitle: "Home", videos })
 }
 export const watch = async (req, res) => {
@@ -27,7 +27,7 @@ export const postEdit = async (req, res) => {
     const { title, description, hashtags } = req.body
     const video = await Video.exists({ _id: id })
     if (!video) {
-        return res.render("404", { pageTitle: "Video not found" })
+        return res.status(404).render("404", { pageTitle: "Video not found" })
     } else {
         await Video.findByIdAndUpdate(id, {
             title,
@@ -52,7 +52,28 @@ export const postUpload = async (req, res) => {
         })
         return res.redirect("/")
     } catch (error) {
-        console.log(error)
-        return res.render("upload", { pageTitle: "Upload Video", errorMessage: error._message })
+        return res.status(400).render("upload", { pageTitle: "Upload Video", errorMessage: error._message })
     }
+}
+
+export const deleteVideo = async (req, res) => {
+    const { id } = req.params
+    await Video.findByIdAndDelete(id)
+    //delete video
+    return res.redirect("/")
+}
+
+export const search = async (req, res) => {
+    const { keyword } = req.query
+    let videos = []
+    if (keyword) {
+        //search
+        // let 이나 const를 사용하지 않고 변수를 지정하면 if문 밖의 let에 update가 가능하다
+        videos = await Video.find({
+            title: {
+                $regex: new RegExp(keyword, "i")
+            }
+        })
+    }
+    return res.render("search", { pageTitle: "Search", videos })
 }
